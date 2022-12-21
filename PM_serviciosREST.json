@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "c9dffd19-cf59-4df1-8e32-fe75c7a7d833",
+		"name": "Open-Bootcamp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12970866"
+	},
+	"item": [
+		{
+			"name": "Get all bootcampers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status is 200\", function(){\r",
+							"pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"First element is Gerardo\", function(){\r",
+							"reply = pm.response.json();\r",
+							"pm.expect(reply[0].name).to.eql(\"Gerardo\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "pm.test(\"Status is 200\", function(){\r\npm.response.to.have.status(200);\r\n});\r\n\r\npm.test(\"First element is Gerardo\", function(){\r\nreply = pm.response.json();\r\npm.expect(reply[0].name).to.eql(\"Gerardo\");\r\n});"
+				},
+				"url": {
+					"raw": "{{url}}/bootcampers",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"bootcampers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Bootcamper",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"RobertSmith\",\r\n    \"age\": 65.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/bootcampers/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"bootcampers",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change bootcamper's age",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"RobertSmith\",\r\n        \"edad\": 39.0\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/bootcampers/RobertSmith/80.0",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"bootcampers",
+						"RobertSmith",
+						"80.0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/bootcampers/RobertSmith/80.0",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"bootcampers",
+						"RobertSmith",
+						"80.0"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
