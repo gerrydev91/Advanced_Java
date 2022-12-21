@@ -3,21 +3,21 @@ package com.beto.ph.demo.models;
 public class Bootcamper {
 
     private String name;
-    private double edad;
+    private double age;
 
-    public double getEdad() {
-        return edad;
+    public double getage() {
+        return age;
     }
 
-    public void setEdad(double edad) {
-        this.edad = edad;
+    public void setage(double age) {
+        this.age = age;
     }
 
    
 
-    public Bootcamper(String name, double edad) {
+    public Bootcamper(String name, double age) {
         this.name = name;
-        this.edad = edad;
+        this.age = age;
     }
 
     public Bootcamper() {

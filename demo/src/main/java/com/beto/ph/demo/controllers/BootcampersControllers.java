@@ -9,11 +9,13 @@ import com.beto.ph.demo.models.Bootcamper;
 import com.beto.ph.demo.services.BootcamperService;
 
 import jakarta.ws.rs.Path;
+import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
 
 @Component
 @Path("/")
@@ -40,6 +42,28 @@ public class BootcampersControllers {
     @Produces("Application/json")
     public List<Bootcamper> listAll(){
         return bootcamperService.getAll();
+    }
+
+
+    @GET
+    @Path("/bootcampers/{name}")
+    @Produces("Application/json")
+    public  Bootcamper listOne(@PathParam("name") String name){
+        return bootcamperService.getBC(name);
+    }
+
+
+    @PUT
+    @Path("/bootcampers/{name}/{age}")
+    @Produces("Application/json")
+    @Consumes("Application/json")
+
+    public  Bootcamper changeAge(@PathParam("name") String name, 
+    @PathParam("age") double age){
+
+        //Bootcamper bootcamper = new Bootcamper();
+        return bootcamperService.changeAge(name, age);
+        
     }
 
     @POST
