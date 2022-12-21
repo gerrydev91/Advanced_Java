@@ -22,6 +22,20 @@ public class BootcamperService {
         bootcampers.add(bootcamper);
     }
 
+    public Bootcamper delete(String name, double age) {
+
+        for (Bootcamper bootcamper : bootcampers) {
+            if (bootcamper.getName().equalsIgnoreCase(name)&& bootcamper.getage()==age) {
+                
+                bootcampers.remove(bootcamper);
+                
+                return null;
+            }
+        }
+
+        return null;
+    }
+
     public Bootcamper getBC(String name) {
 
         for (Bootcamper bootcamper : bootcampers) {

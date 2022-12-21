@@ -13,6 +13,7 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PUT;
@@ -72,11 +73,24 @@ public class BootcampersControllers {
     @Consumes("Application/json")
     public Response insertBootcamper(Bootcamper bootcamper){
         bootcamperService.add(bootcamper);
-        
         return Response.created(URI.create("/bootcamper" + 
         bootcamper.getName())
         ).build();
 
     }
+
+    @DELETE
+    @Path("/bootcampers/{name}/{age}")
+    @Produces("Application/json")
+    @Consumes("Application/json")
+
+    public  Bootcamper delete(@PathParam("name") String name, 
+    @PathParam("age") double age){
+
+        return bootcamperService.delete(name, age);
+        
+    }
+
+
 
 }
